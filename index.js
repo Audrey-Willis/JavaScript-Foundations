@@ -45,7 +45,8 @@ let numerator = principal * n1 * monthlyInterestRate;
 let denominator = n1 - 1;
 let monthlyRate = numerator/denominator;
 console.log(monthlyRate);
-}
+
+
 
 
 // 🏡 Task 3: Function
@@ -53,6 +54,12 @@ console.log(monthlyRate);
 
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
+
+mortgageCalculator= () => {
+return name + ", your monthly rate is " + monthlyRate;
+}
+console.log(mortgageCalculator());
+
 
 
 
@@ -65,6 +72,16 @@ For example,
 mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
+mortgageCalculator = (principal, interestRate, years) => {
+    return name + " your monthly rate is " + monthlyRate;
+}
+console.log(mortgageCalculator(20000, 0.05, 30))
+
+
+
+
+  
+   
 
 
 
@@ -113,3 +130,4 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 
 
 /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
+}
