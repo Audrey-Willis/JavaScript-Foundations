@@ -4,7 +4,7 @@
 /* Create variables for principal, interest rate, and years. Assign them the values 200000, 0.05, and 30 respectively. Create another value called name and give it the value of your own name.
 */
 {
-let principal = 20000;
+let principal = 200000;
 let interestRate = 0.05;
 let years = 30;
 let name = "Audrey";
@@ -18,7 +18,7 @@ let name = "Audrey";
 (1) Create a variable called `monthlyInterestRate` and give it the value of interest rate divided by 12. 
 (2) Create another variable called `periods` and give it the value of years*12.
 */
-let monthlyInterestRate = interestRate / 12;
+let monthlyInterestRate = interestRate/ 12;
 let periods = years*12;
 
 
@@ -40,11 +40,11 @@ Hint #2: you'll need to use the `math` object for parts of this calculation!
 When your math is correct, monthlyRate will equal 1073.64
 */
 
-let n1 = Math.pow(1 + monthlyInterestRate,periods);
+let n1 = Math.pow(1 + monthlyInterestRate, periods);
 let numerator = principal * n1 * monthlyInterestRate;
 let denominator = n1 - 1;
 let monthlyRate = numerator/denominator;
-console.log(monthlyRate);
+console.log(monthlyRate.toFixed(2));
 
 
 
@@ -55,10 +55,14 @@ console.log(monthlyRate);
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
-mortgageCalculator= () => {
-return name + ", your monthly rate is " + monthlyRate;
+mortgageCalculator = () => {
+let n1 = Math.pow(1 + monthlyInterestRate,periods);
+let numerator = principal * n1 * monthlyInterestRate;
+let denominator = n1 - 1;
+let monthlyRate = numerator/denominator;
+return name + ", your monthly rate is " + monthlyRate.toFixed(2);
 }
-console.log(mortgageCalculator());
+console.log(mortgageCalculator(200000, 0.05, 30));
 
 
 
@@ -73,9 +77,15 @@ mortgageCalculator(200000, 0.05, 30); <-- should return 1,073.64
 */
 
 mortgageCalculator = (principal, interestRate, years) => {
-    return name + " your monthly rate is " + monthlyRate;
+let name = "Audrey";
+let n1 = Math.pow(1 + monthlyInterestRate,periods);
+let numerator = principal * n1 * monthlyInterestRate;
+let denominator = n1 - 1;
+let monthlyRate = numerator/denominator;
+return name + " your monthly rate is " + monthlyRate.toFixed(2);
 }
-console.log(mortgageCalculator(20000, 0.05, 30));
+console.log(mortgageCalculator(200000, 0.05, 30));
+
 
 
 
@@ -93,17 +103,27 @@ Then, add control flow within your function such that IF creditScore is above 74
 
 Hint: To drop an interest rate by 5% you can take monthlyRate and multiply it by 0.95. Similarly, to increase an interest rate by 5% you'd do monthlyRate * 1.05. 
 */
-let creditScore = 800
 
 mortgageCalculator = (principal, interestRate, years, creditScore) => {
-        if (creditScore > 740) {
-          return monthlyRate * 0.95;
-        }else (creditScore < 660) 
-          return monthlyRate * 1.05
-        }
-      console.log(mortgageCalculator(20000, 0.05, 30, 800));
+ 
+  let name = "Audrey";
+  let monthlyInterestRate = interestRate/ 12;
+  let periods = years*12;
+  let n1 = Math.pow(1 + monthlyInterestRate, periods);
+  let numerator = principal * n1 * monthlyInterestRate;
+  let denominator = n1 - 1;
+  let monthlyRate = numerator/denominator;
+ if (creditScore > 740) {
+return monthlyRate * 0.95.toFixed(2);
+ }else (creditScore < 660) 
+return monthlyRate * 1.05.toFixed(2)
+}
+console.log(mortgageCalculator(200000, 0.05, 30, 800).toFixed(2));
       
+    
+ 
 
+       
 // 🏡 Task 6: Loops
 /* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
 
@@ -119,6 +139,34 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.055, your monthly rate is $1136"
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
+
+variableInterestRate = (principal, interestRate, years)  => {
+for(let interestRate = 0.02; interestRate <= 0.06; interestRate += 0.005){
+
+let name = "Audrey";
+let monthlyInterestRate = interestRate/ 12;
+let periods = years*12;
+let n1 = Math.pow(1 + monthlyInterestRate, periods);
+let numerator = principal * n1 * monthlyInterestRate;
+let denominator = n1 - 1;
+let monthlyRate = numerator/denominator;
+  console.log(`${name} , with an interest rate of ${interestRate.toFixed(3)} , your monthly rate is ${monthlyRate.toFixed(2)}`);
+ 
+}
+}
+
+variableInterestRate(200000, 0.04, 30)
+;
+  
+
+
+
+
+
+
+
+
+
 
 
 
